@@ -1,0 +1,273 @@
+/* 
+---------------------------------------------
+welcome
+--------------------------------------------- 
+*/
+
+.welcome-area {
+	overflow: hidden;
+	position: relative;
+	padding-top: 150px;
+	padding-bottom: 100px;
+	background: #fff url(../images/header-bg.svg) top left no-repeat;
+	-webkit-transform-style: preserve-3d;
+	   -moz-transform-style: preserve-3d;
+			transform-style: preserve-3d;
+
+	&:after {
+		content: '';
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background: none;
+		z-index: 3;
+	}
+
+	.header-text {
+
+		h1 {
+			@include font($normal, 42px);
+			color: $headingDark;
+			line-height: 50px;
+			letter-spacing: 1.4px;
+			margin-bottom: 20px;
+
+			span {
+				color: $primaryColor;
+			}
+		}
+
+		p {
+			@include font($normal, 16px);
+			color: #697BA2;
+			line-height: 28px;
+			letter-spacing: 0.53px;
+			margin-bottom: 40px;
+			position: relative;
+		}
+
+		.email-box {
+			width: 80%;
+			position: relative;
+			background: none;
+			overflow: hidden;
+
+			.input {
+				height: 46px;
+
+				input {
+					position: absolute;
+					width: 100%;
+					height: 46px;
+					@include radius(100px);
+					border: 1px solid #CCDFF9;
+					outline: none;
+					padding-left: 20px;
+					padding-right: 120px;
+					z-index: 1;
+					@include font($medium, 12px);
+					color: #6F8BA4;
+					letter-spacing: 0.67px;
+					@include transition(.3s);
+					left: 0px;
+					top: 0px;
+
+					&::-webkit-input-placeholder {
+						color: #6F8BA4;
+					}
+
+					&:-moz-placeholder {   
+						color: #6F8BA4;
+					}
+
+					&:focus {
+						padding-left: 30px;
+					}
+				}
+
+				button {
+					position: absolute;
+					right: 0px;
+					z-index: 2;
+					height: 46px;
+					border: none;
+					background: $secondaryColor;
+					border-radius: 0 100px 100px 0;
+					@include font($bold, 12px);
+					color: #fff;
+					width: 98px;
+					outline: none;
+					cursor: pointer;
+				}
+			}
+
+			span {
+				display: block;
+				margin-top: 10px;
+				@include font($normal, 12px);
+				color: #6F8BA4;
+				letter-spacing: 0.67px;
+				padding-left: 5px;
+			}
+		}
+	}
+
+	.home-img-group {
+		position: relative;
+		height: 544px;
+
+		.home-img {
+			width: 100%;
+			height: 200px;
+			@include radius(5px);
+			width: 31%;
+
+			.play-button-wrapper {
+				position: absolute;
+				width: 100%;
+				top: 48%;
+				left: 0px;
+				transform: perspective(1px) translateY(-45%);
+				z-index: 4;
+				right: 0px;
+
+				.btn-play {
+					width: 60px;
+					height: 60px;
+					line-height: 60px;
+					text-align: center;
+					font-size: 22px;
+					color: #fff;
+					margin: auto;
+					left: 0px;
+					right: 0px;
+					display: block;
+					border: 1px solid #fff;
+					@include radius(100px);
+					position: absolute;
+					overflow: hidden;
+					top: 50%;
+					transform: perspective(1px) translateY(-50%);
+					z-index: 3;
+
+					&:before {
+						content: '';
+						position: absolute;
+						width: 100%;
+						height: 100%;
+						left: 0px;
+						top: 0px;
+						background: #fff;
+						opacity: .25;
+						z-index: 1;
+					}
+
+					i {
+						padding-left: 5px;
+						position: relative;
+						z-index: 2;
+					}
+				}
+			}
+
+			&.img-1 {
+				height: 476px;
+				float: left;
+				position: absolute;
+				bottom: 0px;
+				left: 0px;
+			}
+
+			&.img-2 {
+				height: 544px;
+				left: 0px;
+				right: 0px;
+				margin: auto;
+				position: absolute;
+				bottom: 0px;
+
+				&:before {
+					content: '';
+					position: absolute;
+					background: $primaryColor;
+					z-index: 2;
+					width: 100%;
+					height: 100%;
+					top: 0px;
+					left: 0px;
+					opacity: 0;
+					@include transition(.6s);
+				}
+
+				&:hover {
+					&:before {
+						opacity: .50;
+					}
+				}
+			}
+
+			&.img-3 {
+				height: 430px;
+				position: absolute;
+				bottom: 0px;
+				right: 0px;
+			}
+		}
+	}
+}
+
+
+@media (max-width : 1200px) {
+	.email-box {
+		width: 100% !important;
+	}
+}
+
+
+@media (max-width : 991px) {
+	.welcome-area {
+
+		.header-text {
+			text-align: center;
+
+			h1 {
+				text-align: center;
+				@include font($normal, 28px);
+				line-height: 42px;
+			}
+
+			p {
+				text-align: center;
+			}
+
+			.email-box {
+				width: 100% !important;
+
+				span {
+					text-align: center;
+					margin-bottom: 60px;
+				}
+			}
+		}
+
+		.home-img-group {
+			height: 300px;
+
+			.home-img {
+				height: 200px;
+
+				&.img-1 {
+					height: 250px;
+				}
+
+				&.img-2 {
+					height: 300px;
+				}
+
+				&.img-3 {
+					height: 200px;
+				}
+			}
+		}
+	}
+}
